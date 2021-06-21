@@ -28,7 +28,6 @@ class handDetector():
         return img
 
     def findPosition(self, img, handNo=0, draw=True):
-
         lmList = []
         if self.results.multi_hand_landmarks:
             myHand = self.results.multi_hand_landmarks[handNo]
@@ -53,6 +52,7 @@ def main():
         success, img = cap.read()
         img = detector.findHands(img)
         lmList = detector.findPosition(img)
+        print(lmList)
         if len(lmList) != 0:
             print(lmList[4])
 
@@ -65,7 +65,6 @@ def main():
 
         cv2.imshow("Image", img)
         cv2.waitKey(1)
-
 
 if __name__ == "__main__":
     main()
